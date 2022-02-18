@@ -10,27 +10,69 @@
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>to-do-list</title>
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+  <title>To Do list</title>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
-      <a class="navbar-brand ms-3" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ms-2">to-do-list</span>
-      </a>
+    <nav class="bg-dark text-center">
+      <h1 class="text-light">To Do list</h1>
     </nav>
   </header>
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+  <main class="container-fluid bg-light">
+    <!-- static form -->
+    <form class="row text-center" onsubmit="app.listsController.createList()">
+      <div class="mb-3 col-md-3">
+        <label for="" class="form-label">List Name</label>
+        <input required type="name" class="form-control" name="name" id="name" aria-describedby="helpId"
+          placeholder="List name....">
+      </div>
+      <div class="mb-3 col-md-3">
+        <label for="" class="form-label"> List Color</label>
+        <input required type="color" class="form-control" name="color" id="color" aria-describedby="helpId"
+          placeholder="">
+      </div>
+      <div class="col-md-3 mt-3">
+        <button type="submit" class="btn btn-dark">Dark</button>
+      </div>
+    </form>
+    <!-- form end -->
+
+    <!-- list template start -->
+    <div class="row" id="lists">
+      <div class="col-md-3">
+        <div class="bg-primary text-center rounded-top border border-dark">
+          <div class="d-flex justify-content-between m-3">
+            <h3>list name</h3><i class="mdi mdi-delete"></i>
+          </div>
+          <p>3/4</p>
         </div>
+        <div class="border border-dark">
+          <div class="form-check bg-secondary text-center">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Task 1
+            </label>
+          </div>
+          <div class="form-check bg-secondary text-center">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Task 2
+            </label>
+          </div>
+        </div>
+        <form class="" onsubmit="app.taskController.createTask()">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Task" aria-label="task" aria-describedby="task"
+              id="task">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
+                class="mdi mdi-plus"></i></button>
+          </div>
+        </form>
       </div>
     </div>
+    <!-- temp end -->
   </main>
   <footer class="bg-dark text-light">
     <div class="text-center no-select">
