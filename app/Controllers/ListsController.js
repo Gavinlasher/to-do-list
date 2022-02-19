@@ -13,12 +13,14 @@ function _drawList() {
 export class ListsController {
   constructor() {
     ProxyState.on("lists", _drawList);
+    ProxyState.on('tasks', _drawList)
 
     console.log("hello from list controller");
     _drawList();
   }
 
   createList() {
+  
     window.event.preventDefault();
 
     const form = window.event.target;
