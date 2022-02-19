@@ -13,31 +13,21 @@ export class List {
         
         <div class="row">
       <div class="col-md-3">
-        <div style="background:'${this.color}'" class="bg-primary text-center rounded-top border border-dark">
+        <div style="background-color: ${this.color};" class="text-center rounded-top border border-dark">
           <div class="d-flex justify-content-between m-3">
             <h3>${this.name}</h3><i class="mdi mdi-delete" onclick="app.listsController.deleteList('${this.id}')"></i>
           </div>
           <p>3/4</p>
         </div>
         <div class="border border-dark">
-          <div class="form-check bg-secondary text-center">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Task 1
-            </label>
-          </div>
-          <div class="form-check bg-secondary text-center">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Task 2
-            </label>
-          </div>
+         ${this.taskTemplate}
         </div>
-        <form class="" onsubmit="app.taskController.createTask()">
+        <form class="" onsubmit="app.tasksController.createTask('${this.id}')">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Task" aria-label="task" aria-describedby="task"
-              id="task">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
+            <input onclick="app.tasksController.deleteTask()" type="text" class="form-control" placeholder="Task" aria-label="task" aria-describedby="task"
+              id="name">
+        
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
                 class="mdi mdi-plus"></i></button>
           </div>
         </form>
@@ -46,5 +36,12 @@ export class List {
         
         
         `;
+  }
+  get taskTemplate() {
+    let temp = "";
+    let myTask = ProxyState.tasks.filter((t) => t.listid == this.id);
+
+    myTask.forEach((t) => (temp += t.Template));
+    return temp;
   }
 }

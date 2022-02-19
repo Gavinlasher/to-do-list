@@ -13,6 +13,7 @@ function _drawList() {
 export class ListsController {
   constructor() {
     ProxyState.on("lists", _drawList);
+
     console.log("hello from list controller");
     _drawList();
   }
