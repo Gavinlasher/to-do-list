@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { tasksService } from "../Services/TasksService.js";
+import { Pop } from "../Utils/Pop.js";
 
 export class TasksController {
   constructor() {
@@ -19,13 +20,16 @@ export class TasksController {
 console.log(newTask, 'this is working?');
     tasksService.createTask(newTask);
   }
-  deleteTask(id){
-    tasksService.deleteTask(id)
+ async deleteTask(id){
+   if(await Pop.confirm()){
+     tasksService.deleteTask(id)
+   }
 
 
   }
 
-completeTask(thisid){
+ completeTask(thisid){
+   Pop.gavin()
   console.log(thisid, 'hello this id is from complete task');
 tasksService.completeTask(thisid)
 }

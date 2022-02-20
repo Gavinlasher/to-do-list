@@ -2,6 +2,7 @@ import { ProxyState } from "../AppState.js";
 import { List } from "../Models/List.js";
 import { listsServices } from "../Services/ListsService.js";
 import { loadState, saveState } from "../Utils/LocalStorage.js";
+import { Pop } from "../Utils/Pop.js";
 
 function _drawList() {
   let temp = "";
@@ -37,7 +38,10 @@ export class ListsController {
     listsServices.createList(newList);
   }
 
-  deleteList(listId) {
-    listsServices.deleteList(listId);
+  async deleteList(listId) {
+     if(await Pop.confirm()){
+       listsServices.deleteList(listId);
+     }
+    
   }
 }

@@ -62,4 +62,24 @@ export class Pop {
     let message = error.response?.data || error.message
     Pop.toast(message, 'error')
   }
+  
+  static gavin(){
+    
+    Swal.fire({
+      title: 'Task Complete',
+      text: 'Great Job, keep going!',
+      imageUrl: 'https://c.tenor.com/r3O28gHwbvMAAAAC/frodo-baggins-its-over.gif',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
+  }
+
+
+
+
+
+
+
+  
 }
