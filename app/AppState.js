@@ -16,7 +16,7 @@ class AppState extends EventEmitter {
 
   lists = [];
 
-  tasks = [gavin];
+  tasks = [];
 }
 
 export const ProxyState = new Proxy(new AppState(), {

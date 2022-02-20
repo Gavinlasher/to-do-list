@@ -9,6 +9,18 @@ class TasksService {
 
     console.log(newTask, "this is now made it to the taskservice");
   }
+
+
+completeTask(id){
+const tasksArray = [...ProxyState.tasks]
+let taskToUpdate =   tasksArray.find(t => t.id === id)
+taskToUpdate.complete =  true;
+ProxyState.tasks = taskToUpdate
+
+}
+
+
+
 }
 
 export const tasksService = new TasksService();

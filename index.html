@@ -25,7 +25,7 @@
     <form class="row text-center" onsubmit="app.listsController.createList()">
       <div class="mb-3 col-md-3">
         <label for="" class="form-label">List Name</label>
-        <input required type="name" class="form-control" name="name" id="name" aria-describedby="helpId"
+        <input required type="name" maxlength="15" minlength="3" class="form-control" name="name" id="name" aria-describedby="helpId"
           placeholder="List name....">
       </div>
       <div class="mb-3 col-md-3">

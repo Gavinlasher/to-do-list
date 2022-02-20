@@ -19,7 +19,15 @@ console.log(newTask, 'this is working?');
     tasksService.createTask(newTask);
   }
   deleteTask(id){
+    
 ProxyState.tasks = ProxyState.tasks.filter(t => t.id != id)
 
   }
+
+completeTask(id){
+  console.log(id, 'hello this id is from complete task');
+tasksService.completeTask(id)
+}
+
+
 }

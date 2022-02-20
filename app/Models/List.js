@@ -5,7 +5,7 @@ export class List {
   constructor(data) {
     this.name = data.name;
     this.color = data.color;
-    this.id = generateId() || data.id;
+    this.id = data.id || generateId();
   }
 
   get Template() {
@@ -24,7 +24,7 @@ export class List {
         </div>
         <form class="" onsubmit="app.tasksController.createTask('${this.id}')">
           <div class="input-group">
-            <input  type="text" class="form-control" placeholder="Task..." aria-label="task" aria-describedby="task" id="name">
+            <input  required type="text" class="form-control" placeholder="Task..." aria-label="task" aria-describedby="task" maxlength="50" minlength="3" id="name">
             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
             <i class="mdi mdi-plus"></i></button>
           </div>
