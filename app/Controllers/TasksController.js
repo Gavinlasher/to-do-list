@@ -12,6 +12,7 @@ export class TasksController {
 
 
     let newTask = {
+      complete: false,
       listid,
       name: form.name.value
     };
@@ -19,14 +20,14 @@ console.log(newTask, 'this is working?');
     tasksService.createTask(newTask);
   }
   deleteTask(id){
-    
-ProxyState.tasks = ProxyState.tasks.filter(t => t.id != id)
+    tasksService.deleteTask(id)
+
 
   }
 
-completeTask(id){
-  console.log(id, 'hello this id is from complete task');
-tasksService.completeTask(id)
+completeTask(thisid){
+  console.log(thisid, 'hello this id is from complete task');
+tasksService.completeTask(thisid)
 }
 
 

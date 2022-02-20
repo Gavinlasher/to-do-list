@@ -11,13 +11,13 @@ export class List {
   get Template() {
     return /*html*/ `
         
-        <div class="row">
-      <div class="col-md-3">
+        
+      <div class="col-md-3 mt-3">
         <div style="background-color: ${this.color};" class="text-center rounded-top border border-dark">
           <div class="d-flex justify-content-between m-3">
             <h3>${this.name}</h3><i class="mdi mdi-delete" onclick="app.listsController.deleteList('${this.id}')"></i>
           </div>
-          <p>0/${this.TotalList}</p>
+          <p>${this.Complete}/${this.TotalList}</p>
         </div>
         <div class="border border-dark">
          ${this.taskTemplate}
@@ -30,7 +30,7 @@ export class List {
           </div>
         </form>
       </div>
-    </div>
+    
         
         
         `;
@@ -44,7 +44,23 @@ export class List {
   }
 
 
+
+  get Complete(){
+ 
+    let output = 0
+    
+    const completeTask = ProxyState.tasks.filter(t => t.complete == true)
+    
+    output += completeTask.length
+    
+    
+    return output
+    
+    }
+
+
 get TotalList(){
+ 
 let output = 0
 
 const newTask = ProxyState.tasks.filter(t => t.listid == this.id)

@@ -9,18 +9,39 @@ class TasksService {
 
     console.log(newTask, "this is now made it to the taskservice");
   }
+deleteTask(id){
 
 
-completeTask(id){
-const tasksArray = [...ProxyState.tasks]
-let taskToUpdate =   tasksArray.find(t => t.id === id)
-taskToUpdate.complete =  true;
-ProxyState.tasks = taskToUpdate
+ ProxyState.tasks = ProxyState.tasks.filter(t => t.id != id)
+}
+
+completeTask(thisid){
+console.log('task new id',thisid);
+let newTask = ProxyState.tasks.find(t => t.id == thisid)
+if(newTask.complete == false ){
+  newTask.complete = true;
+}
+else{
+  newTask.complete = false;
+}
+console.log(newTask);
+
+
+ProxyState.tasks = ProxyState.tasks
+
+
+
+
+  
+
+
+}
+
 
 }
 
 
 
-}
+
 
 export const tasksService = new TasksService();

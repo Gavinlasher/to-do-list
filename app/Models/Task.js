@@ -4,8 +4,7 @@ export class Task {
 constructor(data) {
     this.name = data.name;
     this.id = data.id || generateId()
-    this.clicked = data.clicked
-    this.complete = false
+    this.complete = data.complete
     this.listid = data.listid;
   }
   
@@ -15,7 +14,7 @@ constructor(data) {
     return /*html*/ `
     <div class="form-check bg-secondary text-center d-flex justify-content-between">
     ${this.name}
-    <input class="form-check-input" type="checkbox" onclick="app.tasksController.completeTask('${this.id}')"  value="" >
+    <input class="form-check-input" type="checkbox" ${this.complete ? 'checked' : ''} onclick="app.tasksController.completeTask('${this.id}')"  value="" >
     <i class="mdi mdi-delete" onclick="app.tasksController.deleteTask('${this.id}')"></i>
   </div>
 
