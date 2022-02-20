@@ -21,9 +21,7 @@ let newTask = ProxyState.tasks.find(t => t.id == thisid)
 if(newTask.complete == false ){
   newTask.complete = true;
 }
-else{
-  newTask.complete = false;
-}
+
 console.log(newTask);
 
 
