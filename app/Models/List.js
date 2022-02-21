@@ -36,41 +36,34 @@ export class List {
         `;
   }
   get taskTemplate() {
-    let temp = '';
-    let myTask = ProxyState.tasks.filter(t => t.listid == this.id);
+    let temp = "";
+    let myTask = ProxyState.tasks.filter((t) => t.listid == this.id);
 
-    myTask.forEach(t => temp += t.Template);
+    myTask.forEach((t) => (temp += t.Template));
     return temp;
   }
 
+  get Complete() {
+    let output = 0;
 
+    // ProxyState.tasks = ProxyState.tasks.filter((t) => (t.listid = this.id));
 
-  get Complete(){
- 
-    let output = 0
-    
-    const completeTask = ProxyState.tasks.filter(t => t.complete == true)
-    
-    output += completeTask.length
-    
-    
-    return output
-    
-    }
+    const completeTask = ProxyState.tasks.filter(
+      (t) => t.complete && t.listid == this.id
+    );
 
+    output += completeTask.length;
 
-get TotalList(){
- 
-let output = 0
+    return output;
+  }
 
-const newTask = ProxyState.tasks.filter(t => t.listid == this.id)
+  get TotalList() {
+    let output = 0;
 
-output += newTask.length
+    const newTask = ProxyState.tasks.filter((t) => t.listid == this.id);
 
+    output += newTask.length;
 
-return output
-
-}
-
-
+    return output;
+  }
 }
